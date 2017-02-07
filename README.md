@@ -1,2 +1,2 @@
-# template2App
+# templateIonic2App
 TypeScript, Angular 2, Ionic 2
