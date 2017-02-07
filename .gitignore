@@ -30,3 +30,17 @@ $RECYCLE.BIN/
 
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+typings
+**/app/**/*.js
+**/app/**/*.map
+node_modules
+jspm_packages
+bower_components
+
+.vs
+**/*.sou
+**/*.user
+bin
+obj
+packages
