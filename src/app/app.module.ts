@@ -7,7 +7,7 @@ import { Page2 } from '../pages/page2/page2';
 
 const cloudSettings: CloudSettings = { //COMMENT nastaveni push notifikaci https://www.youtube.com/watch?v=7yXtzhqT1uk
   'core': {
-    'app_id': 'c0bb3856' //odpovida ionic.config.json("app_id": "c0bb3856")
+    'app_id': '1f6b902b' //odpovida ionic.config.json("app_id": "1f6b902b")
   },
   'push': {
     'sender_id': '686514125389',
