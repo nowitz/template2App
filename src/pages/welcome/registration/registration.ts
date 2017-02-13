@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, MenuController } from 'ionic-angular';
 
 /*
   Registrace
@@ -10,16 +10,18 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class RegistrationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuController: MenuController) {
+    // this.menuController.enable(false);
+  }
 
   //FIXME bude se volat po registraci uzivatele
   onLogin(){
-    //presmerovani na login
-    this.navCtrl.parent.select(0);
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrationPage');
+    // this.menuController.enable(false);
   }
 
 }

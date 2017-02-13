@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, MenuController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 
 import {Storage} from '@ionic/storage';
 
 import {UserI} from "../../../interface/userI";
 import {HomePage} from '../../home/home';
+import {RegistrationPage} from "../registration/registration";
 
 /*
   Prihlaseni
@@ -15,7 +16,11 @@ import {HomePage} from '../../home/home';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuController: MenuController) { }
+  tab : any;
+  constructor(public navCtrl: NavController, public storage: Storage, public menuController: MenuController) {
+    // this.menuController.enable(false);
+    this.menuController.swipeEnable(false);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -34,8 +39,12 @@ export class LoginPage {
 
   goHome(user: UserI){
     this.storage.set('user', user).then(() =>{
-        this.navCtrl.setRoot(HomePage)
+        this.navCtrl.setRoot(HomePage);
     });
+  }
+
+  goRegistration(){
+    this.navCtrl.push(RegistrationPage);
   }
 
   ionViewWillLeave() {

@@ -8,7 +8,7 @@ import {UserI} from "../interface/userI";
 
 
 import {HomePage} from '../pages/home/home';
-import {WelcomePage} from '../pages/welcome/welcome';
+import {LoginPage} from '../pages/welcome/login/login';
 
 
 @Component({
@@ -43,9 +43,11 @@ export class MyApp {
             this.storage.get('user').then((val) => {
                 if (val !== null) {
                     this.user = val;
+                    this.nav.setRoot(HomePage);
                 } else {
-                    this.nav.setRoot(WelcomePage);
-                    this.menuController.enable(false);
+                    this.nav.setRoot(LoginPage);
+                    // this.menuController.enable(false);
+                    this.menuController.swipeEnable(false);
                 }
             });
 

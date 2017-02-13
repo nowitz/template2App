@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, MenuController} from 'ionic-angular';
 
 import {Storage} from '@ionic/storage';
 
-import {WelcomePage} from '../welcome/welcome';
+import {LoginPage} from '../welcome/login/login';
 
 /*
  Domovsha stranka
@@ -14,7 +14,7 @@ import {WelcomePage} from '../welcome/welcome';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuController: MenuController) {
     }
 
     ionViewDidLoad() {
@@ -25,13 +25,14 @@ export class HomePage {
                 // this.navCtrl.popToRoot()
                 console.log("homepage");
                 console.log(val);
+                this.menuController.swipeEnable(true);
             }
         });
 
     }
 
     logout(){
-        this.storage.remove('user').then(()=>this.navCtrl.setRoot(WelcomePage));
+        this.storage.remove('user').then(()=>this.navCtrl.setRoot(LoginPage));
     }
 
 }
