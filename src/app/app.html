@@ -15,8 +15,8 @@
             <ion-item inset>
                 <ion-icon item-left name="wifi"></ion-icon>
                 <span>connection</span>
-                <!--<span ng-if="network.checkOnline()" class="item-note" style="color:green">{{"connected" | translate}}</span>-->
-                <!--<span ng-if="!network.checkOnline()" class="item-note" style="color:red">{{"disconnected" | translate}}</span>-->
+                <span *ngIf='connectNetwork.isConnected()' style="color:green">Ok</span>
+                <span  *ngIf='!connectNetwork.isConnected()' style="color:red">disconnect</span>
             </ion-item>
             <!--<ion-item-divider > </ion-item-divider>-->
             <button menuClose ion-item no-lines (click)="logout()">
