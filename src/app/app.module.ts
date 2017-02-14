@@ -9,6 +9,8 @@ import { InfoPage } from '../pages/info/info';
 import { LoginPage } from '../pages/welcome/login/login';
 import { RegistrationPage } from '../pages/welcome/registration/registration';
 
+import { BackButton } from '../providers/back-button';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -32,7 +34,8 @@ import { RegistrationPage } from '../pages/welcome/registration/registration';
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Storage
+    Storage,
+    BackButton
   ]
 })
 export class AppModule {}

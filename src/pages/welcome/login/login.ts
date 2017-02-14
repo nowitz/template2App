@@ -7,6 +7,8 @@ import {UserI} from "../../../interface/userI";
 import {HomePage} from '../../home/home';
 import {RegistrationPage} from "../registration/registration";
 
+import { BackButton } from '../../../providers/back-button';
+
 /*
   Prihlaseni
 */
@@ -17,13 +19,13 @@ import {RegistrationPage} from "../registration/registration";
 export class LoginPage {
 
   tab : any;
-  constructor(public navCtrl: NavController, public storage: Storage, public menuController: MenuController) {
-    // this.menuController.enable(false);
-    this.menuController.swipeEnable(false);
+  constructor(public navCtrl: NavController, public storage: Storage, public menuController: MenuController, private backButton: BackButton) {
   }
 
+  //Po nacteni stranky se zakaze postrani menu a nastavi se back tlacicko
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    this.backButton.closeApp();
+    this.menuController.swipeEnable(false);
   }
 
 
@@ -47,8 +49,5 @@ export class LoginPage {
     this.navCtrl.push(RegistrationPage);
   }
 
-  ionViewWillLeave() {
-    this.menuController.enable(true);
-  }
 
 }

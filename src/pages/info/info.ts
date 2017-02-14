@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { BackButton } from '../../providers/back-button';
 
 
 @Component({
@@ -8,10 +9,14 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class InfoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, private backButton: BackButton) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InfoPage');
+    this.backButton.popApp(this.navCtrl);
+  }
+
+  ionViewWillLeave() {
+    this.backButton.closeApp();
   }
 
 }

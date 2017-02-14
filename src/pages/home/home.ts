@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, NavParams, MenuController} from 'ionic-angular';
 
 import {Storage} from '@ionic/storage';
+import {BackButton} from '../../providers/back-button';
 
 import {LoginPage} from '../welcome/login/login';
 
@@ -14,25 +15,24 @@ import {LoginPage} from '../welcome/login/login';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuController: MenuController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
+                public menuController: MenuController, private backButton: BackButton) {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad HomePage');
-
         this.storage.get('user').then((val) => {
             if (val !== null) {
-                // this.navCtrl.popToRoot()
                 console.log("homepage");
                 console.log(val);
                 this.menuController.swipeEnable(true);
+                this.backButton.closeApp();
             }
         });
-
     }
 
-    logout(){
-        this.storage.remove('user').then(()=>this.navCtrl.setRoot(LoginPage));
+    logout() {
+        this.storage.remove('user').then(() =>
+            this.navCtrl.setRoot(LoginPage));
     }
 
 }
