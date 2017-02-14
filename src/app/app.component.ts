@@ -4,11 +4,10 @@ import {StatusBar, Splashscreen} from 'ionic-native';
 
 import {Storage} from '@ionic/storage';
 
-import {UserI} from "../interface/userI";
-
-
 import {HomePage} from '../pages/home/home';
 import {LoginPage} from '../pages/welcome/login/login';
+import {InfoPage } from '../pages/info/info';
+import { ConnectNetwork } from '../providers/connect-network';
 
 
 @Component({
@@ -17,10 +16,10 @@ import {LoginPage} from '../pages/welcome/login/login';
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = HomePage;
-    user: UserI;
+    rootPage: any;
 
-    constructor(public platform: Platform, private storage: Storage, public menuController: MenuController) {
+    constructor(public platform: Platform, private storage: Storage, public menuController: MenuController,
+                public connectNetwork:ConnectNetwork) {
         this.initializeApp();
     }
 
@@ -31,29 +30,13 @@ export class MyApp {
             StatusBar.styleDefault();
             Splashscreen.hide();
 
-            //COMMENT simulace prihlaseni
-            // let tmp: UserI = {
-            //     login: "nowitz",
-            //     firstName: "jan",
-            //     lastName: "novak"
-            // };
-            //
-            // this.storage.set('user', tmp);
-
             this.storage.get('user').then((val) => {
                 if (val !== null) {
-                    this.user = val;
                     this.nav.setRoot(HomePage);
                 } else {
                     this.nav.setRoot(LoginPage);
-                    // this.menuController.enable(false);
                     this.menuController.swipeEnable(false);
                 }
-            });
-
-            this.platform.registerBackButtonAction(() => {
-                // navigator['app'].exitApp();
-                this.nav.pop();
             });
 
         });
@@ -61,6 +44,16 @@ export class MyApp {
 
     goHome() {
         this.nav.setRoot(HomePage);
+    }
+
+
+    goInfo() {
+        this.nav.push(InfoPage);
+    }
+
+    logout() {
+        this.storage.remove('user').then(() =>
+            this.nav.setRoot(LoginPage));
     }
 
 }
