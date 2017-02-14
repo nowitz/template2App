@@ -1,10 +1,9 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, MenuController} from 'ionic-angular';
+import {NavController, MenuController} from 'ionic-angular';
 
 import {Storage} from '@ionic/storage';
 import {BackButton} from '../../providers/back-button';
 
-import {LoginPage} from '../welcome/login/login';
 
 /*
  Domovsha stranka
@@ -15,7 +14,7 @@ import {LoginPage} from '../welcome/login/login';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
+    constructor(public navCtrl: NavController, public storage: Storage,
                 public menuController: MenuController, private backButton: BackButton) {
     }
 
@@ -28,11 +27,6 @@ export class HomePage {
                 this.backButton.closeApp();
             }
         });
-    }
-
-    logout() {
-        this.storage.remove('user').then(() =>
-            this.navCtrl.setRoot(LoginPage));
     }
 
 }
