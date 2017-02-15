@@ -23,3 +23,7 @@ ionic plugin add cordova-plugin-network-information --save
 
 cordova plugin add cordova-sqlite-storage --save
 npm install --save @ionic/storage
+
+npm install @ngx-translate/core --save
+npm install @ngx-translate/http-loader --save
+(https://github.com/ngx-translate/core)

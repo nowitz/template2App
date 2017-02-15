@@ -1,0 +1,18 @@
+{
+  "MENU": {
+    "HOME": "Domů",
+    "INFO": "Informace",
+    "LOGOUT": "Odhlásit se",
+    "CONNECT": "Připojení",
+    "ONLINE": "Online",
+    "OFFLINE": "Offline"
+  },
+
+  "WELCOME": {
+    "LOGIN": "Přihlásit se",
+    "REGISTRATION": "Registrace"
+  },
+
+  "BACK": "zpět"
+
+}

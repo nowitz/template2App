@@ -7,21 +7,21 @@
 
     <ion-content>
         <ion-list>
-            <button menuClose ion-item no-lines (click)="goHome()">Home</button>
+            <button menuClose ion-item no-lines (click)="goHome()">{{ 'MENU.HOME' | translate }}</button>
             <button menuClose ion-item no-lines (click)="goInfo()">
                 <ion-icon item-left name="information-circle"></ion-icon>
-                <span>Information</span>
+                <span>{{ 'MENU.INFO' | translate }}</span>
             </button>
             <ion-item inset>
                 <ion-icon item-left name="wifi"></ion-icon>
-                <span>connection</span>
-                <span *ngIf='connectNetwork.isConnected()' style="color:green">Ok</span>
-                <span  *ngIf='!connectNetwork.isConnected()' style="color:red">disconnect</span>
+                <span>{{ 'MENU.CONNECT' | translate }}</span>
+                <span *ngIf='connectNetwork.isConnected()' style="color:green; float: right">{{ 'MENU.ONLINE' | translate }}</span>
+                <span  *ngIf='!connectNetwork.isConnected()' style="color:red; float: right">{{ 'MENU.OFFLINE' | translate }}</span>
             </ion-item>
             <!--<ion-item-divider > </ion-item-divider>-->
             <button menuClose ion-item no-lines (click)="logout()">
                 <ion-icon item-left name="log-out"></ion-icon>
-                <span>Logout</span>
+                <span>{{ 'MENU.LOGOUT' | translate }}</span>
             </button>
         </ion-list>
     </ion-content>

@@ -1,0 +1,17 @@
+{
+  "MENU": {
+    "HOME": "Home",
+    "INFO": "Information",
+    "LOGOUT": "Logout",
+    "CONNECT": "Connect",
+    "ONLINE": "Online",
+    "OFFLINE": "Offline"
+  },
+
+  "WELCOME": {
+    "LOGIN": "Login",
+    "REGISTRATION": "Registration"
+  },
+
+  "BACK": "back"
+}

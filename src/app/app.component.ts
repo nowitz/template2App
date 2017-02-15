@@ -1,8 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import {Nav, Platform, MenuController} from 'ionic-angular';
+import {Nav, Platform, MenuController, Config} from 'ionic-angular';
 import {StatusBar, Splashscreen} from 'ionic-native';
 
 import {Storage} from '@ionic/storage';
+import {TranslateService} from '@ngx-translate/core';
 
 import {HomePage} from '../pages/home/home';
 import {LoginPage} from '../pages/welcome/login/login';
@@ -19,7 +20,7 @@ export class MyApp {
     rootPage: any;
 
     constructor(public platform: Platform, private storage: Storage, public menuController: MenuController,
-                public connectNetwork:ConnectNetwork) {
+                public connectNetwork:ConnectNetwork, public translate: TranslateService, private config: Config) {
         this.initializeApp();
     }
 
@@ -39,6 +40,23 @@ export class MyApp {
                 }
             });
 
+            //nastaveni jazyka
+            this.setLanguage();
+
+        });
+    }
+
+    setLanguage(){
+        this.translate.addLangs(["en", "cs"]); //nastaveni moznosti jazyka
+        this.translate.setDefaultLang('en'); //defaultni nastaveni jazyka
+        let browserLang = this.translate.getBrowserLang(); //zjisteni jazyka prohlizece
+        this.translate.use(browserLang.match(/en|cs/) ? browserLang : 'en');
+
+        //pokud nekde v aplikaci je BACK tak ho prelozim
+        this.translate.get('BACK').subscribe((res: string) => {
+            // Let android keep using only arrow
+            this.config.set('ios', 'backButtonText', res);
+            // To cange label for all platforms: this.config.set('backButtonText', res);
         });
     }
 
