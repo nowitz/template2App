@@ -1,6 +1,7 @@
 {
   "MENU": {
     "HOME": "Home",
+    "SETTING": "Setting",
     "INFO": "Information",
     "LOGOUT": "Logout",
     "CONNECT": "Connect",
@@ -13,5 +14,11 @@
     "REGISTRATION": "Registration"
   },
 
-  "BACK": "back"
+  "BACK": "back",
+
+  "SETTING": {
+    "LANGUAGE": "Language",
+    "LANGUAGE_OK": "Ok",
+    "LANGUAGE_CANCEL": "Cancel"
+  }
 }

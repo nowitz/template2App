@@ -12,13 +12,14 @@ import { HomePage } from '../pages/home/home';
 import { InfoPage } from '../pages/info/info';
 import { LoginPage } from '../pages/welcome/login/login';
 import { RegistrationPage } from '../pages/welcome/registration/registration';
+import { SettingPage } from '../pages/setting/setting';
 
 import { BackButton } from '../providers/back-button';
 import { ConnectNetwork } from '../providers/connect-network';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: Http) {
-  return new TranslateHttpLoader(http, '../assets/language/', '.json');
+  return new TranslateHttpLoader(http, './assets/language/', '.json');
 }
 
 @NgModule({
@@ -27,7 +28,8 @@ export function createTranslateLoader(http: Http) {
     HomePage,
     InfoPage,
     LoginPage,
-    RegistrationPage
+    RegistrationPage,
+    SettingPage
 
   ],
   imports: [
@@ -48,7 +50,8 @@ export function createTranslateLoader(http: Http) {
     HomePage,
     InfoPage,
     LoginPage,
-    RegistrationPage
+    RegistrationPage,
+    SettingPage
 
   ],
   providers: [

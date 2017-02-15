@@ -1,6 +1,7 @@
 {
   "MENU": {
     "HOME": "Domů",
+    "SETTING": "Nastavení",
     "INFO": "Informace",
     "LOGOUT": "Odhlásit se",
     "CONNECT": "Připojení",
@@ -13,6 +14,12 @@
     "REGISTRATION": "Registrace"
   },
 
-  "BACK": "zpět"
+  "BACK": "zpět",
+
+  "SETTING": {
+    "LANGUAGE": "Jazyk",
+    "LANGUAGE_OK": "Ok",
+    "LANGUAGE_CANCEL": "Zavřít"
+  }
 
 }
