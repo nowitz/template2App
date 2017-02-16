@@ -15,6 +15,7 @@
   },
 
   "BACK": "back",
+  "EXIT_APP": "Press again to exit",
 
   "SETTING": {
     "LANGUAGE": "Language",

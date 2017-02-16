@@ -28,7 +28,10 @@ export class BackButton {
                     if (this.backbutton == 0) {
                         this.backbutton++;
 
-                        this.presentToast();
+                        this.translate.get('EXIT_APP').subscribe((res: string) => {
+                            this.presentToast(res);
+                         });
+
                         setTimeout(() => {
                             this.backbutton = 0;
                         }, 1500);
@@ -41,9 +44,9 @@ export class BackButton {
         });
     };
 
-    presentToast() {
+    presentToast(message:string) {
         let toast = this.toastController.create({
-            message: "jeste jednou a ukoncite aplikaci",
+            message: message,
             duration: 2000,
             position: "middle"
         });
