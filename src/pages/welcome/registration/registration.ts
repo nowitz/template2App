@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { BackButton } from '../../../providers/back-button';
-
-/*
+/**
   Registrace
 */
 @Component({
@@ -12,17 +10,8 @@ import { BackButton } from '../../../providers/back-button';
 })
 export class RegistrationPage {
 
-  constructor(public navCtrl: NavController, private backButton: BackButton) {
+  constructor(public navCtrl: NavController) {
   }
-
-  ionViewDidLoad() {
-    this.backButton.popApp(this.navCtrl);
-  }
-
-  ionViewWillLeave() {
-    this.backButton.closeApp();
-  }
-
 
   //FIXME bude se volat po registraci uzivatele
   onLogin(){

@@ -10,6 +10,7 @@ import {LoginPage} from '../pages/welcome/login/login';
 import {InfoPage } from '../pages/info/info';
 import {ConnectNetwork} from '../providers/connect-network';
 import {SettingPage} from "../pages/setting/setting";
+import {BackButton} from '../providers/back-button';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class MyApp {
     rootPage: any;
 
     constructor(public platform: Platform, private storage: Storage, public menuController: MenuController,
-                public connectNetwork:ConnectNetwork, public translate: TranslateService, private config: Config) {
+                public connectNetwork:ConnectNetwork, public translate: TranslateService, private config: Config, private backButton: BackButton) {
         this.initializeApp();
     }
 
@@ -37,12 +38,17 @@ export class MyApp {
                     this.nav.setRoot(HomePage);
                 } else {
                     this.nav.setRoot(LoginPage);
+                    //Pro nactenou stranku se zakaze otvirani postraniho menu
                     this.menuController.swipeEnable(false);
                 }
             });
 
             //nastaveni jazyka
             this.setLanguage();
+            //nastaveni spravny funkcnosti back button tlacitka
+            this.backButton.registerBackButtonListener(this.nav);
+            //odstraneni textu u sipky back
+            this.config.set('ios', 'backButtonText', '');
 
         });
     }
@@ -53,8 +59,6 @@ export class MyApp {
         let browserLang = this.translate.getBrowserLang(); //zjisteni jazyka prohlizece
         this.translate.use(browserLang.match(/en|cs/) ? browserLang : 'en');
 
-
-        this.config.set('ios', 'backButtonText', '');
         //najdu ve slovnikach BACK a dosadim ho do konfigurace aplikace
         /*this.translate.get('BACK').subscribe((res: string) => {
             // Let android keep using only arrow

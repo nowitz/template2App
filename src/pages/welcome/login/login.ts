@@ -7,9 +7,7 @@ import {UserI} from "../../../interface/userI";
 import {HomePage} from '../../home/home';
 import {RegistrationPage} from "../registration/registration";
 
-import { BackButton } from '../../../providers/back-button';
-
-/*
+/**
   Prihlaseni
 */
 @Component({
@@ -18,13 +16,11 @@ import { BackButton } from '../../../providers/back-button';
 })
 export class LoginPage {
 
-  tab : any;
-  constructor(public navCtrl: NavController, public storage: Storage, public menuController: MenuController, private backButton: BackButton) {
+  constructor(public navCtrl: NavController, public storage: Storage, public menuController: MenuController) {
   }
 
-  //Po nacteni stranky se zakaze postrani menu a nastavi se back tlacicko
+  //Po nacteni stranky se zakaze otvirani postrani menu
   ionViewDidLoad() {
-    this.backButton.closeApp();
     this.menuController.swipeEnable(false);
   }
 
