@@ -27,3 +27,10 @@ npm install --save @ionic/storage
 npm install @ngx-translate/core --save
 npm install @ngx-translate/http-loader --save
 (https://github.com/ngx-translate/core)
+
+
+1) prejmenovat vsude templateIonic2App
+2) npm install
+3) ionic state restore
+4) ionic build ios/android
+5) ionic serve
