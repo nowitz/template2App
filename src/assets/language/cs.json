@@ -21,6 +21,12 @@
     "LANGUAGE": "Jazyk",
     "LANGUAGE_OK": "Ok",
     "LANGUAGE_CANCEL": "Zavřít"
+  },
+
+  "LOGIN":{
+    "USERNAME": "Uživatelské jméno",
+    "PASSWORD": "Heslo",
+    "BUTTON": "Přihlásit se"
   }
 
 }

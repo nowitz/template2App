@@ -9,7 +9,23 @@
 
 <ion-content padding>
 
-  <button (click)="login()">login</button>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label floating>{{ 'LOGIN.USERNAME' | translate }}</ion-label>
+      <ion-input [(ngModel)]="loginData.username"  formControlName="username" type="text" value=""></ion-input>
+    </ion-item>
 
-  <button (click)="goRegistration()">registrtion</button>
+    <ion-item>
+      <ion-label floating>{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
+      <ion-input [(ngModel)]="loginData.password" formControlName="password" type="password" value=""></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button primary block  [disabled]="!loginForm.valid" type="submit" >{{ 'LOGIN.BUTTON' | translate }}</button>
+    </div>
+  </form>
+
+  <div padding>
+    <button ion-button color="secondary" block  (click)="goRegistration()">{{ 'WELCOME.REGISTRATION' | translate }}</button>
+  </div>
 </ion-content>
